@@ -3,7 +3,7 @@
 import sqlite3
 
 def salvar_no_banco(texto):
-    conn = sqlite3.connect('Aula 19 - Arquitetura de software e padrões de design/banco.db')
+    conn = sqlite3.connect('banco.db')
     c =  conn.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS notas (texto TEXT)")
     c.execute("INSERT INTO notas VALUES(?)",(texto,))
@@ -11,7 +11,7 @@ def salvar_no_banco(texto):
     conn.close()
 
 def ler_do_banco():
-    conn = sqlite3.connect('Aula 19 - Arquitetura de software e padrões de design/banco.db')
+    conn = sqlite3.connect('banco.db')
     c =  conn.cursor()
     c.execute('CREATE TABLE IF NOT EXISTS notas(texto TEXT)')
     c.execute("SELECT * FROM notas")
